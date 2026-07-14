@@ -46,17 +46,26 @@ export default function PrivateLabel() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [visibleSteps, setVisibleSteps] = useState(new Set());
 
-  // Category switcher animation
+  // Category switcher animation ref
+  const transitionTimerRef = useRef(null);
   useEffect(() => {
-    if (activeCat !== displayCat) {
+    return () => {
+      if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
+    };
+  }, []);
+
+  const handleSelectCat = (idx) => {
+    if (idx !== activeCat) {
+      setActiveCat(idx);
       setAnimState('leaving');
-      const timer1 = setTimeout(() => {
-        setDisplayCat(activeCat);
+      if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
+      transitionTimerRef.current = setTimeout(() => {
+        setDisplayCat(idx);
         setAnimState('entering');
       }, 150);
-      return () => clearTimeout(timer1);
     }
-  }, [activeCat, displayCat]);
+  };
+
   useEffect(() => {
     if (animState === 'entering') {
       const timer2 = setTimeout(() => { setAnimState('visible'); }, 50);
@@ -236,13 +245,13 @@ export default function PrivateLabel() {
 
           <div ref={ingredientsRef} style={{ display: 'flex', gap: '48px', alignItems: 'stretch', flexWrap: 'wrap' }}>
             {/* Tabs */}
-            <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div className="private-label-tabs" style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {categories.map((cat, idx) => {
                 const active = activeCat === idx;
                 return (
                   <button
                     key={idx}
-                    onClick={() => setActiveCat(idx)}
+                    onClick={() => handleSelectCat(idx)}
                     style={{
                       padding: '28px 24px',
                       textAlign: 'left',
@@ -311,7 +320,7 @@ export default function PrivateLabel() {
             </div>
 
             {/* Preview card — glassmorphic */}
-            <div style={{
+            <div className="private-label-preview" style={{
               flex: '1.2 1 420px',
               background: 'rgba(255,255,255,0.05)',
               backdropFilter: 'blur(20px)',
@@ -390,7 +399,7 @@ export default function PrivateLabel() {
               Every format engineered for maximum shelf life and retail impact.
             </p>
           </div>
-          <div ref={pkgGridRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+          <div ref={pkgGridRef} className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
             {packages.map((pkg, idx) => {
               const PkgIcon = pkg.icon;
               return (
@@ -494,7 +503,7 @@ export default function PrivateLabel() {
               <span className="gradient-text-green">Gallery.</span>
             </h2>
           </div>
-          <div ref={galleryRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
+          <div ref={galleryRef} className="packaging-gallery-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
             {[
               { title: 'Crispy Strawberries', type: 'Stand-Up Pouch', image: '/images/private_label.png' },
               { title: 'Sweet Potato Bites', type: 'Kraft Zip Pouch', image: '/images/pet_treats.png' },
@@ -793,7 +802,7 @@ export default function PrivateLabel() {
                   </p>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div className="form-row-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div>
                       <label style={{ display: 'block', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '11px', color: 'var(--text-dark)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                         Company Name

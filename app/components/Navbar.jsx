@@ -131,29 +131,35 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
           style={{
-            width: 40, height: 40, display: 'none',
+            width: 44, height: 44, display: 'none',
             alignItems: 'center', justifyContent: 'center',
-            borderRadius: 10,
+            borderRadius: 12,
             background: glassed ? 'var(--light-grey)' : 'rgba(255,255,255,0.15)',
             color: glassed ? 'var(--text-dark)' : 'white',
             border: 'none', cursor: 'pointer',
+            transition: 'all 0.2s ease',
+            position: 'relative',
+            zIndex: 1002,
           }}
         >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div style={{
         position: 'absolute', top: '100%', left: 0, right: 0,
-        background: 'rgba(255,255,255,0.97)',
-        backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
+        background: 'rgba(255,255,255,0.98)',
+        backdropFilter: 'blur(30px)', WebkitBackdropFilter: 'blur(30px)',
         padding: menuOpen ? '24px' : '0 24px',
         maxHeight: menuOpen ? '600px' : '0',
+        opacity: menuOpen ? 1 : 0,
+        visibility: menuOpen ? 'visible' : 'hidden',
         overflow: 'hidden',
-        transition: 'all 0.4s var(--ease-out-expo)',
+        transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         borderBottom: menuOpen ? '1px solid var(--border-light)' : 'none',
-        boxShadow: menuOpen ? '0 20px 40px rgba(0,0,0,0.08)' : 'none',
+        boxShadow: menuOpen ? '0 20px 40px rgba(0,0,0,0.1)' : 'none',
+        zIndex: 999,
       }}>
         {navLinks.map((link, i) => (
           <Link
@@ -162,7 +168,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
             style={{
               display: 'block', width: '100%', textAlign: 'left',
-              padding: '14px 0',
+              padding: '16px 0',
               fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px',
               color: pathname === link.href ? 'var(--green)' : 'var(--text-dark)',
               textDecoration: 'none',
@@ -177,11 +183,12 @@ export default function Navbar() {
           href="https://wa.me/919023257295?text=Hi%20BFF!"
           target="_blank" rel="noopener noreferrer"
           className="btn btn-whatsapp"
-          style={{ marginTop: '20px', width: '100%', justifyContent: 'center' }}
+          style={{ marginTop: '20px', width: '100%', justifyContent: 'center', padding: '14px' }}
         >
           WhatsApp Inquiry
         </a>
       </div>
+
 
       <style>{`
         @media (max-width: 1000px) { .desktop-nav { display: none !important; } .mobile-menu-btn { display: flex !important; } }

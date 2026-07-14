@@ -342,7 +342,7 @@ export default function About() {
               <span className="gradient-text-green">Processing Power.</span>
             </h2>
           </div>
-          <div ref={storyRef} style={{
+          <div ref={storyRef} className="story-grid" style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '40px',
@@ -436,7 +436,7 @@ export default function About() {
 
           <div ref={timelineRef} style={{ maxWidth: '760px', margin: '0 auto', position: 'relative' }}>
             {/* Central spine */}
-            <div style={{
+            <div className="timeline-spine-wrapper" style={{
               position: 'absolute',
               top: 0, bottom: 0,
               left: '36px',
@@ -452,6 +452,7 @@ export default function About() {
                 <div
                   key={i}
                   data-step={i}
+                  className="timeline-step-row"
                   style={{
                     display: 'flex',
                     alignItems: 'flex-start',
@@ -465,7 +466,7 @@ export default function About() {
                   }}
                 >
                   {/* Icon node on spine */}
-                  <div style={{
+                  <div className="timeline-icon-col" style={{
                     flexShrink: 0,
                     width: '72px',
                     display: 'flex',
@@ -640,7 +641,7 @@ export default function About() {
             </p>
           </div>
 
-          <div style={{
+          <div className="compare-grid" style={{
             display: 'grid',
             gridTemplateColumns: '1fr auto 1fr',
             gap: '28px',
@@ -686,7 +687,7 @@ export default function About() {
             </div>
 
             {/* VS badge */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '100px' }}>
+            <div className="compare-vs-column" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '100px' }}>
               <div style={{
                 width: 52, height: 52, borderRadius: '50%',
                 background: 'linear-gradient(135deg, var(--green), var(--lime))',
@@ -694,7 +695,7 @@ export default function About() {
                 fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '13px', color: 'white',
                 boxShadow: '0 8px 24px rgba(45,122,58,0.35)',
               }}>VS</div>
-              <div style={{
+              <div className="compare-vs-line" style={{
                 width: '2px', height: '60px', marginTop: '12px',
                 background: 'linear-gradient(to bottom, var(--green), transparent)',
               }} />

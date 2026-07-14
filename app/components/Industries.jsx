@@ -160,23 +160,28 @@ export default function Industries() {
   const [animState, setAnimState] = useState('visible'); // 'visible', 'leaving', 'entering'
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const transitionTimerRef = useRef(null);
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.05 });
     if (sectionRef.current) obs.observe(sectionRef.current);
-    return () => obs.disconnect();
+    return () => {
+      obs.disconnect();
+      if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
+    };
   }, []);
 
-  useEffect(() => {
-    if (activeIndustry.id !== displayIndustry.id) {
+  const handleSelectIndustry = (ind) => {
+    if (ind.id !== activeIndustry.id) {
+      setActiveIndustry(ind);
       setAnimState('leaving');
-      const timer1 = setTimeout(() => {
-        setDisplayIndustry(activeIndustry);
+      if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
+      transitionTimerRef.current = setTimeout(() => {
+        setDisplayIndustry(ind);
         setAnimState('entering');
       }, 150);
-      return () => clearTimeout(timer1);
     }
-  }, [activeIndustry, displayIndustry]);
+  };
 
   useEffect(() => {
     if (animState === 'entering') {
@@ -211,10 +216,10 @@ export default function Industries() {
       <div style={{ height: '0px', background: 'var(--white)' }} />
 
       {/* ── Industry Selector ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr' }}>
+      <div className="industries-selector-grid" style={{ display: 'grid', gridTemplateColumns: '280px 1fr' }}>
 
         {/* Sidebar Nav */}
-        <div style={{
+        <div className="industries-sidebar" style={{
           borderRight: '1px solid var(--border-light)',
           background: 'var(--light-grey)',
           padding: '32px 0',
@@ -226,7 +231,8 @@ export default function Industries() {
             return (
               <button
                 key={ind.id}
-                onClick={() => setActiveIndustry(ind)}
+                onClick={() => handleSelectIndustry(ind)}
+                className={active ? 'active-industry-btn' : ''}
                 style={{
                   width: '100%',
                   display: 'flex', alignItems: 'center', gap: '12px',
@@ -238,6 +244,7 @@ export default function Industries() {
                   textAlign: 'left',
                   transition: 'all 0.25s ease',
                   cursor: 'pointer',
+                  '--active-color': ind.color,
                 }}
               >
                 <IndIcon size={15} style={{ flexShrink: 0 }} />
@@ -248,7 +255,7 @@ export default function Industries() {
         </div>
 
         {/* Detail Panel */}
-        <div style={{
+        <div className="industries-detail-panel" style={{
           position: 'relative',
           padding: '56px 64px',
           minHeight: '600px',
@@ -302,7 +309,7 @@ export default function Industries() {
                 <displayIndustry.Icon size={22} color={displayIndustry.color} />
               </div>
               <div>
-                <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '34px', color: 'white', lineHeight: 1.05, textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}>
+                <h2 className="industry-detail-title" style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '34px', color: 'white', lineHeight: 1.05, textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}>
                   {displayIndustry.title}
                 </h2>
               </div>
@@ -319,7 +326,7 @@ export default function Industries() {
               <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '13px', color: 'rgba(255,255,255,0.65)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '16px', textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>
                 Key Applications
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div className="industry-apps-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                 {displayIndustry.applications.map((app, i) => (
                   <div key={i} style={{
                     display: 'flex', alignItems: 'center', gap: '10px',

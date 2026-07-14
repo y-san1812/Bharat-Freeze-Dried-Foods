@@ -52,7 +52,7 @@ export default function Hero() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{ position: 'relative', zIndex: 10, paddingTop: '180px', paddingLeft: 'max(20px, 4vw)', maxWidth: '840px' }}>
+      <div className="hero-content-container" style={{ position: 'relative', zIndex: 10, paddingTop: '180px', paddingLeft: 'max(20px, 4vw)', paddingRight: 'max(20px, 4vw)', maxWidth: '840px' }}>
         <div>
 
           {/* Label pill */}
@@ -78,7 +78,7 @@ export default function Hero() {
           {/* Heading */}
           <h1 style={{
             fontFamily: 'var(--font-display)', fontWeight: 900,
-            fontSize: 'clamp(44px, 7vw, 108px)',
+            fontSize: 'clamp(32px, 7vw, 108px)',
             lineHeight: 1.02, letterSpacing: '-0.04em',
             color: 'white', marginBottom: '28px',
             opacity: textVisible ? 1 : 0,

@@ -76,7 +76,7 @@ export default function Footer() {
     }}>
       <div className="container">
         {/* Top row */}
-        <div style={{
+        <div className="footer-grid" style={{
           display: 'grid',
           gridTemplateColumns: '2fr 1fr 1fr 1fr',
           gap: 'clamp(32px, 4vw, 60px)',
@@ -121,7 +121,7 @@ export default function Footer() {
               maxWidth: '280px',
               marginBottom: '28px',
             }}>
-              India's premier freeze-dried food technology company. Preserving nature's best 
+              India&apos;s premier freeze-dried food technology company. Preserving nature&apos;s best 
               with advanced lyophilization since our founding.
             </p>
 

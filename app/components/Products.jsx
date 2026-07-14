@@ -405,7 +405,7 @@ export default function Products() {
       {/* MOQ + Sample Request Banner */}
       <div style={{ padding: '64px 0', background: 'var(--light-grey)', borderBottom: '1px solid var(--border-light)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'center' }}>
+          <div className="moq-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'center' }}>
             <div>
               <div className="section-label" style={{ marginBottom: '16px' }}>Sourcing Information</div>
               <h2 className="display-sm" style={{ color: 'var(--text-dark)', marginBottom: '16px' }}>

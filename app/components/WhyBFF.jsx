@@ -61,10 +61,7 @@ function FreezeChamberCard({ reason, index, defrostProgress, mousePos }) {
 
   // Spawn sparkles on hover
   useEffect(() => {
-    if (!hovered) {
-      setSparkles([]);
-      return;
-    }
+    if (!hovered) return;
     const interval = setInterval(() => {
       setSparkles(prev => [
         ...prev.slice(-12), // keep max 12 sparkles
@@ -112,8 +109,9 @@ function FreezeChamberCard({ reason, index, defrostProgress, mousePos }) {
   return (
     <div
       ref={cardRef}
+      className="why-card"
       onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseLeave={() => { setHovered(false); setSparkles([]); }}
       style={{
         gridColumn: reason.size === 'large' ? 'span 2' : 'span 1',
         background: hovered ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)',
@@ -506,7 +504,7 @@ export default function WhyBFF() {
         </div>
 
         {/* Responsive Grid of Frozen Cards */}
-        <div style={{
+        <div className="why-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '20px',
