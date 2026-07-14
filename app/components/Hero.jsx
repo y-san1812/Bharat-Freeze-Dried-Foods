@@ -126,7 +126,7 @@ export default function Hero() {
               Get a Quote
             </Link>
             <a
-              href="https://wa.me/919023257295?text=Hi%20BFF%2C%20I%27m%20interested%20in%20your%20products."
+              href="https://wa.me/919993377038?text=Hi%20BFF%2C%20I%27m%20interested%20in%20your%20products."
               target="_blank" rel="noopener noreferrer"
               className="btn btn-whatsapp"
               style={{ padding: '16px 28px', fontSize: '15px', gap: '8px' }}

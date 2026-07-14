@@ -89,8 +89,8 @@ export default function Contact() {
     {
       icon: <Phone size={20} />,
       label: 'Phone / WhatsApp',
-      value: '+91 90232 57295',
-      link: 'tel:+919023257295',
+      value: '+91 99933 77038',
+      link: 'tel:+919993377038',
       color: '#2D7A3A',
     },
     {
@@ -164,7 +164,7 @@ export default function Contact() {
                   For urgent inquiries, WhatsApp us directly.
                 </p>
                 <a
-                  href="https://wa.me/919023257295"
+                  href="https://wa.me/919993377038"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-whatsapp"
@@ -436,7 +436,7 @@ export default function Contact() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/919023257295?text=Hi%20Bharat%20Freeze%20Fried%20Foods%2C%20I%27m%20interested%20in%20your%20products.%20Please%20contact%20me."
+              href="https://wa.me/919993377038?text=Hi%20Bharat%20Freeze%20Fried%20Foods%2C%20I%27m%20interested%20in%20your%20products.%20Please%20contact%20me."
               target="_blank"
               rel="noopener noreferrer"
               style={{

@@ -113,7 +113,7 @@ export default function Navbar() {
             );
           })}
           <a
-            href="https://wa.me/919023257295?text=Hi%20Bharat%20Freeze%20Fried%20Foods%2C%20I%27m%20interested%20in%20your%20products."
+            href="https://wa.me/919993377038?text=Hi%20Bharat%20Freeze%20Fried%20Foods%2C%20I%27m%20interested%20in%20your%20products."
             target="_blank" rel="noopener noreferrer"
             className="btn btn-whatsapp"
             style={{ marginLeft: '8px', padding: '10px 18px', fontSize: '13px', gap: '7px' }}
@@ -180,7 +180,7 @@ export default function Navbar() {
           </Link>
         ))}
         <a
-          href="https://wa.me/919023257295?text=Hi%20BFF!"
+          href="https://wa.me/919993377038?text=Hi%20BFF!"
           target="_blank" rel="noopener noreferrer"
           className="btn btn-whatsapp"
           style={{ marginTop: '20px', width: '100%', justifyContent: 'center', padding: '14px' }}

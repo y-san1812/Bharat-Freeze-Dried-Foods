@@ -168,7 +168,7 @@ export default function Export() {
             </p>
           </div>
 
-          <div ref={calcRef} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'stretch' }}>
+          <div ref={calcRef} className="calculator-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'stretch' }}>
 
             {/* Calculator Inputs Card */}
             <div style={{
@@ -390,7 +390,7 @@ export default function Export() {
             </h2>
           </div>
 
-          <div ref={advantagesRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '30px' }}>
+          <div ref={advantagesRef} className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '30px' }}>
             {exportAdvantages.map((adv, idx) => {
               const AdvIcon = adv.Icon;
               return (
@@ -462,7 +462,7 @@ export default function Export() {
             </p>
           </div>
 
-          <div ref={stepsRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+          <div ref={stepsRef} className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
             {exportSteps.map((st, idx) => (
               <div
                 key={idx}
@@ -557,7 +557,7 @@ export default function Export() {
 
           <div ref={certsRef}>
             {certTab === 'active' ? (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+              <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
                 {activeCertifications.map((cert, idx) => {
                   const CertIcon = cert.Icon;
                   return (
@@ -596,7 +596,7 @@ export default function Export() {
                 })}
               </div>
             ) : (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
+              <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
                 {roadmapCertifications.map((cert, idx) => {
                   const CertIcon = cert.Icon;
                   const isInProgress = cert.status === 'In Progress';
@@ -911,7 +911,7 @@ export default function Export() {
                   Your inquiry for **{company}** (discharging to **{country}**) is received. Our export managers will email you a standard CIF price catalog.
                 </p>
                 <a
-                  href={`https://wa.me/919023257295?text=Hi%20BFF%2C%20I%20just%20submitted%20an%20export%20inquiry%20for%20company%20${encodeURIComponent(company)}%20shipping%20to%20${encodeURIComponent(country)}`}
+                  href={`https://wa.me/919993377038?text=Hi%20BFF%2C%20I%20just%20submitted%20an%20export%20inquiry%20for%20company%20${encodeURIComponent(company)}%20shipping%20to%20${encodeURIComponent(country)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"

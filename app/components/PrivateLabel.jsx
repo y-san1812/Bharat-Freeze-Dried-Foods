@@ -952,7 +952,7 @@ export default function PrivateLabel() {
                   Thank you for submitting specifications for {brandName}. Our industrial ingredients desk is processing your request and will provide sample details.
                 </p>
                 <a
-                  href={"https://wa.me/919023257295?text=Hi%20BFF%2C%20I%20just%20submitted%20a%20bulk%20inquiry%20RFQ%20for%20company%20" + encodeURIComponent(brandName)}
+                  href={"https://wa.me/919993377038?text=Hi%20BFF%2C%20I%20just%20submitted%20a%20bulk%20inquiry%20RFQ%20for%20company%20" + encodeURIComponent(brandName)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"

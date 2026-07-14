@@ -56,7 +56,7 @@ export default function HumanNutrition() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+          <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
             {useCases.map(({ Icon, title, desc, color, bg }, i) => (
               <div
                 key={i}
@@ -128,7 +128,7 @@ export default function HumanNutrition() {
                 style={{ background: 'white', color: 'var(--green-deep)', padding: '14px 28px', borderRadius: 'var(--radius-full)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '14px' }}>
                 Get Retail Catalog
               </a>
-              <a href="https://wa.me/919023257295" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/919993377038" target="_blank" rel="noopener noreferrer"
                 className="btn btn-whatsapp" style={{ padding: '14px 24px' }}>
                 WhatsApp Now
               </a>
@@ -151,7 +151,7 @@ export default function HumanNutrition() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(195px, 1fr))', gap: '20px' }}>
+          <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(195px, 1fr))', gap: '20px' }}>
             {qualityBadges.map(({ Icon, label, desc, color }, i) => (
               <div
                 key={i}

@@ -498,6 +498,11 @@ a.btn-primary { text-decoration: none; }
     gap: 32px !important;
   }
   
+  .calculator-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  
   .story-grid {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
